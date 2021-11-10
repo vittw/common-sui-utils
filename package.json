@@ -29,9 +29,7 @@
     "test": "",
     "lint": "eslint ./src"
   },
-  "publishConfig": {
-    "registry": "https://www.npmjs.com/settings/ttw_xing/packages"
-  },
+
   "dependencies": {
     "@babel/runtime": "^7.12.5",
     "lodash": "^4.17.20",
