@@ -1,4 +1,4 @@
-// common-utils
+// com_utils
 
 export { VERSION } from './internal/_setup';
 

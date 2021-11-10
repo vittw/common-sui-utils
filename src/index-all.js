@@ -1,5 +1,5 @@
 // ```js
-// import { downloadFromURL } from 'common-utils';
+// import { downloadFromURL } from 'com_utils';
 // ```
 
 export { default } from './index-default.js';

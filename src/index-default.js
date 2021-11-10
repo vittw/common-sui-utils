@@ -2,10 +2,10 @@
 // ==============
 // ```js
 // // CommonJS
-// var utils = require('common-utils');
+// var utils = require('com_utils');
 //
 // // AMD
-// define(['common-utils'], function(S) {...});
+// define(['com_utils'], function(S) {...});
 //
 // // UMD in the browser
 // // S is available as a global variable
