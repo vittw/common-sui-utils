@@ -1,0 +1,77 @@
+{
+  "name": "@common/sui-utils",
+  "version": "0.1.5",
+  "description": "工具函数组件库",
+  "sideEffects": false,
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "unpkg": "dist/sui-utils-min.js",
+  "license": "BSD-3-Clause",
+  "keywords": ["util"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vittw/common-sui-utils"
+  },
+  "scripts": {
+    "clean": "rimraf lib dist es esm build",
+    "build": "npm run clean && npm run bundle && npm run doc",
+    "postbuild": "cp ./config.json build/config.json",
+    "build:base": "rollup --config",
+    "build:umd": "npm run minify-umd -- --source-map content=dist/sui-utils.js.map --source-map-url \" \" -o dist/sui-utils-min.js",
+    "build:esm": "npm run minify-esm -- --source-map content=esm/sui-utils.js.map --source-map-url \" \" -o esm/sui-utils-min.js",
+    "build:es": "babel --config-file ./babel.config.js ./src --out-dir ./es",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel --config-file ./babel.config.js ./src --out-dir ./lib",
+    "minify-umd": "terser dist/sui-utils.js -c \"evaluate=false\" --comments \"/    .*/\" -m",
+    "minify-esm": "terser esm/sui-utils.js -c \"evaluate=false\" --comments \"/    .*/\" -m",
+    "bundle": "npm run build:cjs && npm run build:es && npm run build:base && npm run build:umd && npm run build:esm",
+    "doc": "jsdoc -c jsdoc.json -d ./build",
+    "release": "sh scripts/release.sh",
+    "test": "",
+    "lint": "eslint ./src"
+  },
+  "publishConfig": {
+    "registry": "http://snpm-registry.sto.cn"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.12.5",
+    "lodash": "^4.17.20",
+    "number-precision": "^1.5.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-decorators": "^7.12.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "babel-plugin-lodash": "^3.3.4",
+    "cross-env": "^7.0.3",
+    "docdash": "^1.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.1",
+    "husky": "^4.2.3",
+    "jsdoc": "^3.6.6",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.35.1",
+    "terser": "^4.6.13"
+  },
+  "files": [
+    "es",
+    "lib",
+    "dist",
+    "esm",
+    "README.md"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "security": {
+    "xframe": {
+      "enable": false
+    }
+  }
+}
