@@ -6,13 +6,13 @@ SUI-UTILS
 ## 安装
 
 ```bash
-snpm install com_utils
+snpm install @ttw_xing/com_utils
 
 # OR 设置 registry=http://snpm-registry.sto.cn
 # use npm
-npm i com_utils
+npm i @ttw_xing/com_utils
 # use yarn
-yarn add com_utils
+yarn add @ttw_xing/com_utils
 ```
 
 ## 引入
@@ -20,7 +20,7 @@ yarn add com_utils
 ### 全量引入
 
 ```js
-import * as S from 'com_utils';
+import * as S from '@ttw_xing/com_utils';
 
 const { example, formatNumber } = S;
 ```
@@ -28,7 +28,7 @@ const { example, formatNumber } = S;
 或者
 
 ```js
-import { example, formatNumber } from 'com_utils';
+import { example, formatNumber } from '@ttw_xing/com_utils';
 ```
 
 即使利用解构赋值也会引入整个库，未用到的函数会占用额外的体积
@@ -38,8 +38,8 @@ import { example, formatNumber } from 'com_utils';
 #### 1. 手动挑选函数
 
    ```js
-   import example from 'com_utils/lib/example';
-   import formatNumber from 'com_utils/lib/formatNumber';
+   import example from '@ttw_xing/com_utils/lib/example';
+   import formatNumber from '@ttw_xing/com_utils/lib/formatNumber';
    ```
 
    手动引入比较麻烦，建议使用下面的方法
@@ -47,14 +47,14 @@ import { example, formatNumber } from 'com_utils';
 #### 2. 推荐使用 babel-plugin-import 切分代码
 
    ```js
-   import { example, formatNumber } from 'com_utils';
+   import { example, formatNumber } from '@ttw_xing/com_utils';
    ```
 
    经过打包前 babel 的编译，上面的代码会变为
 
    ```js
-   import example from 'com_utils/lib/example';
-   import formatNumber from 'com_utils/lib/formatNumber';
+   import example from '@ttw_xing/com_utils/lib/example';
+   import formatNumber from '@ttw_xing/com_utils/lib/formatNumber';
    ```
 
    对应 `babel` 配置：
@@ -64,7 +64,7 @@ import { example, formatNumber } from 'com_utils';
      "plugins": [
        ["import",
          {
-           "libraryName": "com_utils"
+           "libraryName": "@ttw_xing/com_utils"
          }
        ]
      ],

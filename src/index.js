@@ -1,4 +1,4 @@
-// com_utils
+// @ttw_xing/com_utils
 
 export { VERSION } from './internal/_setup';
 
