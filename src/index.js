@@ -1,4 +1,4 @@
-// @common/sui-utils
+// common-utils
 
 export { VERSION } from './internal/_setup';
 
