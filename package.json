@@ -7,7 +7,7 @@
   "module": "es/index.js",
   "unpkg": "dist/sui-utils-min.js",
   "license": "BSD-3-Clause",
-  "keywords": ["util"],
+  "keywords": ["util","工具函数","常用","插件","utils"],
   "repository": {
     "type": "git",
     "url": "https://github.com/vittw/common-sui-utils"
